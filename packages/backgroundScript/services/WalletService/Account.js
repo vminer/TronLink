@@ -11,6 +11,7 @@ import {
     ACCOUNT_TYPE,
     SUPPORTED_CONTRACTS
 } from '@tronlink/lib/constants';
+import axios from "axios";
 
 const logger = new Logger('WalletService/Account');
 let listTokens = [];
@@ -157,21 +158,33 @@ class Account {
         let offset = 0;
 
         while(hasMoreTransactions) {
-            const newTransactions = (await NodeService.tronWeb.trx
-                .getTransactionsRelated(this.address, 'all', 90, offset))
-                .map(transaction => {
-                    transaction.offset = offset;
-                    return transaction;
-                });
-
+            // const newTransactions = (await NodeService.tronWeb.trx
+            //     .getTransactionsRelated(this.address, 'all', 90, offset))
+            //     .map(transaction => {
+            //         transaction.offset = offset;
+            //         return transaction;
+            //     });
+            const data = {account:{address:TronWeb.address.toHex(this.address)},limit:90,offset};
+            const from = await axios.post('http://47.90.247.237:8091/walletextension/gettransactionsfromthis',data);
+            const to =   await axios.post('http://47.90.247.237:8091/walletextension/gettransactionstothis',data);
+            const newTransactions = from.data.transaction.map(transaction=>{
+                transaction.direction='from'
+                return transaction;
+            }).concat(to.data.transaction.map(transaction=>{
+                transaction.direction='to';
+                return transaction;
+            })).map(transaction => {
+                transaction.offset = offset;
+                return transaction;
+            });
             if(!newTransactions.length)
                 hasMoreTransactions = false;
             else offset += 90;
-
             transactions.push(...newTransactions);
+            return transactions;
         }
 
-        return transactions;
+
     }
 
     matches(accountType, importData) {
@@ -301,7 +314,6 @@ class Account {
 
             return [];
         });
-
         const filteredTransactions = transactions
             .filter(({ txID }) => (
                 !Object.keys(this.transactions).includes(txID) &&
@@ -350,12 +362,10 @@ class Account {
             newTransactions.push(transaction);
             manuallyCached.push(transaction.txID);
         }
-
         const sortedTransactions = [
             ...Object.values(this.transactions),
             ...newTransactions
         ].sort((a, b) => b.timestamp - a.timestamp);
-
         this.transactions = sortedTransactions
             .slice(0, 100)
             .reduce((transactions, transaction) => {
