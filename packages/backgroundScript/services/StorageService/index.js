@@ -56,7 +56,7 @@ const StorageService = {
         },
         openAccountsMenu:false,
         advertising: {},
-        developmentMode: location.hostname !== 'mjiaoacjghphpbdfjhfajojajhkcphgm'
+        developmentMode: location.hostname !== 'cnobnlbebaannfebhoblgidckmjhchlb'
     },
     language: '',
     ready: false,
@@ -230,7 +230,7 @@ const StorageService = {
         if(!this.setting.hasOwnProperty('advertising')){
             this.setting.advertising = {};
         }
-        return {...this.setting,developmentMode:location.hostname !== 'mjiaoacjghphpbdfjhfajojajhkcphgm'};
+        return {...this.setting,developmentMode:location.hostname !== 'cnobnlbebaannfebhoblgidckmjhchlb'};
     },
 
     migrate() {

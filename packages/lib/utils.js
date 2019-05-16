@@ -190,7 +190,7 @@ const Utils = {
             case 'nnceancbokoldkjjbpopcffaoekebnnb':
                 curApiHost = defaultUrl;
                 break;
-            case 'mjiaoacjghphpbdfjhfajojajhkcphgm':
+            case 'cnobnlbebaannfebhoblgidckmjhchlb':
                 curApiHost = defaultUrl;
                 break;
             default:

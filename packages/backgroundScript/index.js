@@ -19,7 +19,7 @@ const backgroundScript = {
         new WalletService()
     ),
 
-    developmentMode: location.hostname !== 'mjiaoacjghphpbdfjhfajojajhkcphgm',
+    developmentMode: location.hostname !== 'cnobnlbebaannfebhoblgidckmjhchlb',
     nodeService: Utils.requestHandler(NodeService),
 
     run() {
