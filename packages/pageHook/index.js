@@ -25,7 +25,7 @@ const pageHook = {
             if(node.fullNode)
                 this.setNode(node);
 
-            logger.info('VminerExtension initiated');
+            logger.info('VminerPay initiated');
         }).catch(err => {
             logger.info('Failed to initialise vminer', err);
         });
@@ -33,7 +33,7 @@ const pageHook = {
 
     _bindvminer() {
         if(window.vminer !== undefined)
-            logger.warn('vminer is already initiated. VminerExtension will overwrite the current instance');
+            logger.warn('vminer is already initiated. VminerPay will overwrite the current instance');
 
         const vminer = new TronWeb(
             new ProxiedProvider(),
