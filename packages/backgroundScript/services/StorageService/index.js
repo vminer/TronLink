@@ -56,7 +56,7 @@ const StorageService = {
         },
         openAccountsMenu:false,
         advertising: {},
-        developmentMode: location.hostname !== 'ibnejdfjmmkpcnlpebklmnkoeoihofec'
+        developmentMode: location.hostname !== 'mjiaoacjghphpbdfjhfajojajhkcphgm'
     },
     language: '',
     ready: false,
@@ -230,7 +230,7 @@ const StorageService = {
         if(!this.setting.hasOwnProperty('advertising')){
             this.setting.advertising = {};
         }
-        return {...this.setting,developmentMode:location.hostname !== 'ibnejdfjmmkpcnlpebklmnkoeoihofec'};
+        return {...this.setting,developmentMode:location.hostname !== 'mjiaoacjghphpbdfjhfajojajhkcphgm'};
     },
 
     migrate() {
@@ -435,6 +435,24 @@ const StorageService = {
         });
 
         logger.info('Purge complete. Please reload TronLink');
+    },
+
+    checkUpdate(){
+        chrome.runtime.onUpdateAvailable.addListener(function(details) {
+            console.log("updating to version " + details.version);
+            chrome.runtime.reload();
+          });
+
+          chrome.runtime.requestUpdateCheck(function(status) {
+            if (status == "update_available") {
+              console.log("update pending...");
+              chrome.runtime.reload();
+            } else if (status == "no_update") {
+                return
+            } else if (status == "throttled") {
+               return
+            }
+          });
     }
 };
 

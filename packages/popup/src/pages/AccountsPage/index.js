@@ -187,30 +187,29 @@ class AccountsPage extends React.Component {
                     <div className='cell'>
                         <div className='title'>
                             <FormattedMessage id='CONFIRMATIONS.RESOURCE.BANDWIDTH' />
-                            <div className='num'>
+                            {/* <div className='num'>
                                 {account.netLimit - account.netUsed}<span>/{account.netLimit}</span>
-                            </div>
+                            </div> */}
                         </div>
                         <ProcessBar percentage={(account.netLimit - account.netUsed) / account.netLimit} />
                     </div>
-                    <div className='line'></div>
                     <div className='cell bankSingle'>
                         <div className='title'>
                             {
                                 nodes.selected === 'f0b1e38e-7bee-485e-9d3f-69410bf30681' ?
                                 // nodes.selected === 'f0b1e38e-7bee-485e-9d3f-69410bf306812' ?
-                                    <span className='bankBox' onClick={ () => { PopupAPI.changeState(APP_STATE.TRONBANK); }}>
+                                    <span className='bankBox'>
                                         <FormattedMessage id='CONFIRMATIONS.RESOURCE.ENERGY' />
-                                        <img className='bankArrow' src={require('../../assets/images/new/tronBank/rightArrow.svg')} alt='arrow'/>
-                                        <div className='bankPopover'>
+                                        <div className='bankArrow'></div>
+                                        {/* <div className='bankPopover'>
                                             <div className='popoverTitle'><FormattedMessage id='BANK.INDEX.ENTRANCE' /></div>
-                                        </div>
+                                        </div> */}
                                     </span> :
                                     <FormattedMessage id='CONFIRMATIONS.RESOURCE.ENERGY' />
                             }
-                            <div className='num'>
+                            {/* <div className='num'>
                                 {account.energy - account.energyUsed}<span>/{account.energy}</span>
-                            </div>
+                            </div> */}
                         </div>
                         <ProcessBar percentage={(account.energy - account.energyUsed) / account.energy} />
                     </div>

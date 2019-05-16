@@ -30,7 +30,9 @@ class ConfirmationController extends React.Component {
         this.onWhitelist = this.onWhitelist.bind(this);
     }
 
-    async componentDidMount() {}
+    async componentDidMount() {
+        console.log(await this.addUsedDapp());
+    }
 
     loadWhitelistOptions({ formatMessage }) {
         const options = [{
@@ -90,11 +92,16 @@ class ConfirmationController extends React.Component {
             selected
         } = this.state.whitelisting;
         const { confirmation } = this.props;
-        if( confirmation.contractType === 'TriggerSmartContract' ) {
-            T.loading();
-            await this.addUsedDapp();
-            T.loaded();
+
+        switch (confirmation.contractType) {
+            case 'TriggerSmartContract':
+            case 'TransferContract':
+            case 'TransferAssetContract':
+                T.loading();
+                await this.addUsedDapp();
+                T.loaded();
         }
+
         PopupAPI.acceptConfirmation(selected.value);
     }
 
@@ -153,7 +160,14 @@ class ConfirmationController extends React.Component {
         } = this.props.confirmation;
 
         const meta = [];
-        const showWhitelist = contractType === 'TriggerSmartContract';
+        let showWhitelist = false;
+
+        switch (contractType) {
+            case 'TriggerSmartContract':
+            case 'TransferContract':
+            case 'TransferAssetContract':
+                showWhitelist = true;
+        }
 
         let showParameters = false;
 

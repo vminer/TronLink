@@ -67,15 +67,16 @@
             width: 320px;
             height: 100%;
             padding:0 14px;
-            background:#ffffff;
+            background: #2D2F3C;
             display: flex;
             flex-direction: column;
             .row1{
                 height: 35px;
-                background:rgba(247,248,250,0.90);
+                background: #3D4052;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                color: #ffffff;
                 .cell{
                     flex: 1;
                     display: flex;
@@ -96,18 +97,20 @@
                     &:first-child{
                         border:none;
                         &:before{
-                            background-image: url('../../assets/images/new/icon-create.svg');
+                            background-image: url('../../assets/images/new/vminer/icon-create.png');
+                            background-size: cover;
                         }
                     }
                     &:last-child{
                         &:before{
-                            background-image: url('../../assets/images/new/icon-import.svg');
+                            background-image: url('../../assets/images/new/vminer/icon-import.png');
+                            background-size: cover;
                         }
                     }
                 }
             }
             .row2{
-                background:rgba(247,248,250,0.90);
+                background: #3D4052;
                 height:58px;
                 display: flex;
                 flex-direction: column;
@@ -124,7 +127,7 @@
                     }
                     & > span:last-child{
                         margin-left: 12px;
-                        color:#505160;
+                        color:#FFFFFF;
                     }
                 }
             }
@@ -243,11 +246,12 @@
         }
         .closed{
             cursor: pointer;
-            width: 40px;
-            height: 100%;
-            background-image: url('../../assets/images/new/icon-close.svg');
+            width: 20px;
+            height: 20px;
+            background-image: url('../../assets/images/new/vminer/icon-close.png');
             background-repeat: no-repeat;
-            background-position: center 12px
+            background-size: cover;
+            margin: 10px;
         }
     }
 }
@@ -256,7 +260,7 @@
     flex-direction: column;
     overflow: hidden;
     display: flex;
-    background-color: #F7F8FA;
+    background-color: rgba(45, 47, 60, 1);
     .popUp{
         background: #505160;
         width: 100%;
@@ -363,11 +367,12 @@
         }
     }
     .accountInfo{
-        font-size: 14px;
+        font-size: 16px;
         position: relative;
         width: 360px;
         height: 150px;
-        background-image: url('../../assets/images/new/bg.png');
+        background-image: url('../../assets/images/new/vminer/bg.png');
+        background-size: cover;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -384,9 +389,10 @@
             padding:0 20px;
             .menu{
                 cursor: pointer;
-                width: 18px;
-                height: 13px;
-                background-image: url('../../assets/images/new/icon-more.svg');
+                width: 24px;
+                height: 24px;
+                background-image: url('../../assets/images/new/vminer/icon-more.png');
+                background-size: cover;
             }
             .accountWrap{
                 position: relative;
@@ -395,11 +401,13 @@
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
+                color: 16px;
                 &:before{
-                    width: 18px;
-                    height: 16px;
+                    width: 24px;
+                    height: 24px;
                     content:'';
-                    background-image: url("../../assets/images/new/icon-accounts.svg");
+                    background-image: url("../../assets/images/new/vminer/icon-accounts.png");
+                    background-size: cover;
                     margin-right: 8px;
                 }
                 &>span{
@@ -414,23 +422,24 @@
             font-size: 16px;
             margin-top: 14px;
             height: 25px;
-            color: rgba(255,255,255,.7);
+            color: rgba(120, 120, 134, 1);
             .copy{
-                width: 13px;
-                height: 13px;
+                width: 16px;
+                height: 16px;
                 cursor: pointer;
-                margin-left: 6px;
-                background-image: url('../../assets/images/new/icon-copy.svg');
+                margin-left: 16px;
+                background-image: url('../../assets/images/new/vminer/icon-copy.png');
+                background-size: cover;
             }
         }
         .row3{
             margin-top: 6px;
-            font-size: 15px;
+            font-size: 20px;
         }
         .row4{
             width: 100%;
             height: 38px;
-            border-top:1px solid rgba(247,248,250,0.20);
+            border-top:1px solid rgba(61, 64, 82, 1);
             margin-top: 16px;
             display: flex;
             flex-direction: row;
@@ -443,21 +452,24 @@
                 align-items: center;
                 justify-content: center;
                 span:last-child{
-                    margin-left: 6px;
+                    margin-left: 11px;
+                    margin-top: 2px;
                 }
                 &:first-child{
-                    border-right:1px solid rgba(247,248,250,0.20);
+                    border-right:1px solid rgba(61, 64, 82, 1);
                     span:first-child{
-                        width: 14px;
-                        height: 14px;
-                        background-image: url('../../assets/images/new/icon-receive.svg');
+                        width: 18px;
+                        height: 18px;
+                        background-image: url('../../assets/images/new/vminer/icon-receive.png');
+                        background-size: cover;
                     }
                 }
                 &:last-child{
                     span:first-child{
-                        width: 16px;
-                        height: 14px;
-                        background-image: url('../../assets/images/new/icon-transfer.svg');
+                        width: 18px;
+                        height: 18px;
+                        background-image: url('../../assets/images/new/vminer/icon-transfer.png');
+                        background-size: cover;
                     }
                 }
 
@@ -566,7 +578,8 @@
         padding:12px 20px 0;
         border-radius:4px;
         .resource{
-            background-color: #fff;
+            background-color: rgba(61, 64, 82, 1);
+            border-radius: 4px;
             padding:14px;
             display: flex;
             flex-direction: row;
@@ -593,13 +606,13 @@
                     flex-direction: row;
                     align-items: center;
                     justify-content: space-between;
-                    color:#505160;
+                    color:rgba(255, 255, 255, 1);
                     &>span{
                         font-size:14px;
                     }
                     .bankBox{
                         cursor: pointer;
-                        color:#636acc;
+                        color:rgba(105, 106, 253, 1);
                         max-width: 52px;
                         display: block;
                         overflow: hidden;
@@ -659,9 +672,12 @@
             }
             .bankArrow{
                 display: inline-block;
-                width: 6px;
-                height:8px;
-                margin-left: 2px;
+                margin-left: 7px;
+                width: 0;
+                height: 0;
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-left: 5px solid #696AFD;
             }
         }
         .ieos{
@@ -773,9 +789,9 @@
         }
         .tokens{
             .tokenItem{
-                background-color: #fff;
-                border-radius: 2px;
-                height: 50px;
+                background-color: rgba(61, 64, 82, 1);
+                border-radius: 4px;
+                height: 54px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -785,7 +801,7 @@
                 transition: all .2s ease-in-out;
                 &:hover{
                     transform: translate(-1px,-1px);
-                    background-color: rgba(255,255,255,.8);
+                    background-color: rgba(61, 64, 82, 1);
                 }
                 &:first-child{
                     margin-top: 0;
@@ -798,7 +814,7 @@
                 }
                 .name {
                     font-size: 14px;
-                    color: #505160;
+                    color: white;
                     margin-left: 10px;
                     display: flex;
                     flex-direction: column;
@@ -826,11 +842,12 @@
                     span{
                         &:first-child{
                             font-size: 14px;
-                            color: #505160;
+                            color: white;
                         }
                         &:last-child{
                             font-size: 12px;
-                            color: #888998;
+                            margin-top: 3px;
+                            color: rgba(120, 120, 134, 1);
                         }
                     }
                 }

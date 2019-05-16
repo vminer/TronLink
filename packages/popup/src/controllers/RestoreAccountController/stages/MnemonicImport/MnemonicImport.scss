@@ -1,6 +1,6 @@
 .mnemonicImport {
     .phraseInput {
-        background: #F7F8FA;
+        background: #3D4052;
         padding: 14px;
         font-size: 15px;
         line-height: 20px;
@@ -11,6 +11,7 @@
         width: 100%;
         box-sizing: border-box;
         resize: none;
+        color: #FFFFFF;
     }
 
     .addressList {
@@ -18,7 +19,7 @@
         .addressOption {
             height: 78px;
             padding:14px;
-            background: #F8F9FB;
+            background: #2D2F3C;
             transition: all 200ms ease;
             display: flex;
             flex-direction: row;
@@ -32,7 +33,7 @@
                 box-sizing: content-box;
                 &.isSelected {
                     background-image: url('../../../../assets/images/new/icon-selected.svg');
-                    border-color:#636acc;
+                    border-color: #696AFD;
                 }
             }
             .address {
@@ -45,7 +46,7 @@
                     margin:4px 0;
                     &:first-child{
                         font-size: 16px;
-                        color: #515060;
+                        color: #FFFFFF;
                         font-weight: bold;
                     }
                     &:last-child{
@@ -54,7 +55,7 @@
                     }
                 }
             }
-            
+
 
             &:not(.isLoading) {
                 cursor: pointer;

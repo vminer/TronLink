@@ -61,8 +61,7 @@ class LoginController extends React.Component {
             <div className='insetContainer logoWrap'>
                 <div className='pageHeader'>
                     <div className='pageHeaderLogoWrap'>
-                        <div className='logo1'></div>
-                        <div className='logo2'></div>
+                        <div className='logo3' />
                     </div>
                     <div className='pageHeaderText'>
                         <FormattedMessage id='LOGIN.PASSWORD.BACK' />
@@ -85,7 +84,7 @@ class LoginController extends React.Component {
                         onEnter={ this.onButtonClick }
                         tabIndex={ 1 }
                     />
-            
+
                     <Button
                         id='BUTTON.CONTINUE'
                         isValid={ password.isValid }

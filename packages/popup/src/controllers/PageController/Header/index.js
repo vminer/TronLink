@@ -4,7 +4,7 @@ import { Toast } from 'antd-mobile';
 import { PAGES, APP_STATE } from '@tronlink/lib/constants';
 import { app } from '@tronlink/popup/src/index';
 import { PopupAPI } from '@tronlink/lib/api';
-const logo = require('@tronlink/popup/src/assets/images/new/logo2.svg');
+const logo = require('@tronlink/popup/src/assets/images/new/vminer/logo2.png');
 const PageLink = props => {
     const {
         active = false,
@@ -67,16 +67,6 @@ class Header extends React.Component {
                         <img src={logo} alt=""/>
                     </div>
                     <div>
-                        <div className="linkWrap">
-                            {/*<a href="https://twitter.com/TronLinkWallet" target="_blank" className="link link-twiter"></a>*/}
-                            <a href="https://t.me/TronLink" target="_blank" className="link link-telegram"></a>
-                            <a href="https://www.tronlink.org" target="_blank" className="link link-home"></a>
-                            <a href={trxMarketUrl} target="_blank" className="link link-exchange"></a>
-                            <a href="javascript:void(0)" onClick={()=>{
-                                PopupAPI.setGaEvent('Dapp List','Recommend','Recommend')
-                                PopupAPI.changeState(APP_STATE.DAPP_LIST)
-                            }}  className="link link-dapp"></a>
-                        </div>
                         <div>
                             <div className="fun" onClick={ () => { PopupAPI.lockWallet(); } }></div>
                             <div className="fun" onClick={() => {

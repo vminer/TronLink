@@ -3,7 +3,7 @@
 TronLink is a browser wallet for TRON. It enables you to send and receive TRX, TRC10 and TRC20 tokens. Developers can integrate TronLink into their website to create Decentralised Apps.
 
 ## Downloads
-**Chrome** &ndash; [Download](https://chrome.google.com/webstore/detail/ibnejdfjmmkpcnlpebklmnkoeoihofec) &nbsp; [![Chrome Web Store](https://img.shields.io/chrome-web-store/d/ogffaloegjglncjfehdfplabnoondfjo.svg?style=flat-square)](https://chrome.google.com/webstore/detail/ibnejdfjmmkpcnlpebklmnkoeoihofec) &nbsp; [![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/ogffaloegjglncjfehdfplabnoondfjo.svg?style=flat-square)](https://chrome.google.com/webstore/detail/ibnejdfjmmkpcnlpebklmnkoeoihofec)
+**Chrome** &ndash; [Download](https://chrome.google.com/webstore/detail/mjiaoacjghphpbdfjhfajojajhkcphgm) &nbsp; [![Chrome Web Store](https://img.shields.io/chrome-web-store/d/ogffaloegjglncjfehdfplabnoondfjo.svg?style=flat-square)](https://chrome.google.com/webstore/detail/mjiaoacjghphpbdfjhfajojajhkcphgm) &nbsp; [![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/ogffaloegjglncjfehdfplabnoondfjo.svg?style=flat-square)](https://chrome.google.com/webstore/detail/mjiaoacjghphpbdfjhfajojajhkcphgm)
 
 **Firefox** &ndash; Coming soon
 

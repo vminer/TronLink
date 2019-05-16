@@ -46,8 +46,9 @@ html, body {
     align-items: center;
     justify-content: flex-start;
     position: relative;
+    background-color: #2D2F3C;
     &.logoWrap{
-        padding-top: 93px;
+        padding-top: 40px;
         .setLanguage{
             width: 100%;
             top: 20px;
@@ -56,6 +57,7 @@ html, body {
             display: flex;
             justify-content: flex-end;
             height: 30px;
+            color: #FFFFFF;
             .language{
                 position: relative;
                 display: flex;
@@ -150,13 +152,14 @@ html, body {
     .back{
         cursor: pointer;
         position: absolute;
-        left: 0;
-        top: 0;
-        width: 40px;
-        height: 56px;
-        background-image: url('../images/new/icon-back.svg');
+        left: 20px;
+        top: 20px;
+        width: 9px;
+        height: 16px;
+        background-image: url('../images/new/vminer/icon-back.png');
         background-repeat: no-repeat;
         background-position: center center;
+        background-size: cover;
     }
     &.createOrImportWallet,
     &.writingPhrase,
@@ -174,7 +177,7 @@ html, body {
         .pageHeader{
             position: relative;
             height: 56px;
-            background-color: #fff;
+            background-color: #2D2F3C;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -186,16 +189,16 @@ html, body {
             .logo1{
                 width: 25px;
                 height: 25px;
-                background-image: url('../images/new/logo.svg');
+                background-image: url('../images/new/logo.png');
                 background-repeat: no-repeat;
                 background-size:100% auto;
             }
             .logo2{
-                width: 73px;
-                height: 13px;
-                background-image: url('../images/new/logo2.svg');
+                width: 106px;
+                height: 28px;
+                background-image: url('../images/new/vminer/logo2.png');
                 background-repeat: no-repeat;
-                background-size:auto 100%;
+                background-size:100% 100%;
                 margin-left: 10px;
             }
         }
@@ -205,7 +208,7 @@ html, body {
             padding:24px;
             display: flex;
             flex-direction:column;
-            background-color: #F7F8FA;
+            background-color: #2D2F3C;
             .warning{
                 z-index:100;
                 position: absolute;
@@ -227,7 +230,7 @@ html, body {
             }
             .modalDesc {
                 font-size: 12px;
-                color:#888998;
+                color: #ffffff;
                 margin-bottom: 14px;
             }
             & > .walletOptions{
@@ -248,6 +251,7 @@ html, body {
                         margin-top: 10px;
                         text-align: center;
                         width: 300px;
+                        color: #FFFFFF;
                     }
                     .iconWrap{
                         margin-bottom: 35px;
@@ -279,7 +283,7 @@ html, body {
     &.privateKeyImport,
     &.receive,
     &.send,
-    &.transactions{ .greyModal{background-color: #fff;} }
+    &.transactions{ .greyModal{background-color: #2D2F3C;} }
     &.choosingType{
         .greyModal{
             padding:0 0 0 24px;
@@ -288,17 +292,18 @@ html, body {
                 justify-content: space-between;
                 height: 52px;
                 line-height: 52px;
-                color: #515060;
+                color: #FFFFFF;
                 cursor: pointer;
                 font-size: 16px;
-                border-bottom: 1px solid #EFEFEF;
+                border-bottom: 1px solid #3D4052;
                 &:after{
-                    width: 40px;
-                    height: 52px;
+                    width: 7px;
+                    height: 12px;
+                    margin: 20px 20px 20px 13px;
                     content: '';
-                    background-image: url('../images/new/icon-enter.svg');
+                    background-image: url('../images/new/vminer/icon-enter.png');
                     background-repeat: no-repeat;
-                    background-position:center;
+                    background-size: cover;
                     transition: all .2s ease-in-out;
                 }
                 &.active{
@@ -336,7 +341,7 @@ html, body {
                     justify-content: space-between;
                     //min-height: 52px;
                     line-height: 52px;
-                    color: #515060;
+                    color: #787886;
                     cursor: pointer;
                     font-size: 16px;
                     .txt{
@@ -361,12 +366,13 @@ html, body {
                                 text-align: right;
                             }
                             &:after{
-                                width: 52px;
-                                height: 52px;
+                                width: 7px;
+                                height: 12px;
+                                margin: 20px 20px 20px 13px;
                                 content: '';
-                                background-image: url('../images/new/icon-enter.svg');
+                                background-image: url('../images/new/vminer/icon-enter.png');
                                 background-repeat: no-repeat;
-                                background-position:center;
+                                background-size: cover;
                                 transition: all .2s ease-in-out;
                             }
                         }
@@ -396,14 +402,15 @@ html, body {
                                 margin-right: 14px;
                                 width: 14px;
                                 height: 14px;
-                                border:1px solid #C2C8D5;
+                                border:1px solid #787886;
                                 border-radius:100%;
                             }
                             &.selected{
                                 &:before {
                                     width: 16px;
                                     height: 16px;
-                                    background-image: url('../images/new/icon-selected.svg');
+                                    background-image: url('../images/new/vminer/setting-selected.png');
+                                    background-size: contain;
                                     border: none;
                                 }
                             }
@@ -420,7 +427,7 @@ html, body {
                                 margin-top: 10px;
                                 height: 112px;
                                 padding:10px 14px;
-                                background:#f7f8fa;
+                                background:#3D4052;
                                 border-radius:2px;
                                 display: flex;
                                 flex-direction: column;
@@ -430,7 +437,8 @@ html, body {
                                             border: none;
                                             width: 16px;
                                             height: 16px;
-                                            background-image: url('../images/new/icon-selected.svg');
+                                            background-image: url('../images/new/vminer/setting-selected.png');
+                                            background-size: contain;
                                         }
                                     }
                                 }
@@ -440,13 +448,13 @@ html, body {
                                     flex-direction: row;
                                     align-items: center;
                                     justify-content: space-between;
-                                    font-size:16px;
-                                    color:#515060;
+                                    font-size: 16px;
+                                    color: #fff;
                                     &:after{
                                         content: "";
                                         width: 14px;
                                         height: 14px;
-                                        border: 1px solid #c2c8d5;
+                                        border: 1px solid #787886;
                                         border-radius: 100%;
                                     }
                                 }
@@ -475,57 +483,59 @@ html, body {
                                 color: #888998;
                             }
                             .input{
-                                height: 36px;
+                                height: 42px;
                                 line-height:36px;
                                 margin-top: 10px;
-                                background-color: #F7F8FA;
-                                border-radius:2px;
+                                background-color: #1B1D2A;
+                                border-radius:4px;
                                 input{
                                     width: 100%;
                                     height: 100%;
                                     font-size: 14px;
                                     padding:0 8px;
                                     border:none;
+                                    color: #fff;
                                     background-color: transparent;
                                 }
                             }
                         }
                     }
                     &:before{
-                        width: 52px;
-                        height: 52px;
+                        width: 20px;
+                        height: 20px;
                         content: '';
                         background-repeat: no-repeat;
-                        background-position:center;
+                        background-size: contain;
+                        margin: 16px 16px 0 21px;
                     }
                     &:first-child{
                         &:before{
-                            background-image: url('../images/new/icon-node.svg');
+                            background-image: url('../images/new/vminer/setting-update.png');
                         }
                     }
                     &:nth-child(2){
                         &:before{
-                            background-image: url('../images/new/icon-add-node.svg');
+                            background-image: url('../images/new/vminer/setting-node.png');
                         }
                     }
                     &:nth-child(3){
                         &:before{
-                            background-image: url('../images/new/icon-currency.svg');
+                            background-image: url('../images/new/vminer/setting-coin.png');
                         }
                     }
                     &:nth-child(4){
                         &:before{
-                            background-image: url('../images/new/icon-language.svg');
+                            background-image: url('../images/new/vminer/setting-lang.png');
                         }
                     }
                     &:nth-child(5){
                         &:before{
-                            background-image: url('../images/new/icon-auto-lock.svg');
+                            background-image: url('../images/new/vminer/setting-auto.png');
                         }
                     }
                     &:nth-child(6){
                         &:before{
-                            background-image: url('../images/new/icon-lock.svg');
+                            background-image: url('../images/new/vminer/setting-close.png');
                         }
                     }
                     &.active{
@@ -612,10 +622,10 @@ html, body {
                         span{
                             font-weight: bold;
                             font-size: 16px;
-                            color: #636ACC;
+                            color: #696AFD;
                             height: 40px;
                             line-height:40px;
-                            border-bottom:2px solid #636ACC;
+                            border-bottom:2px solid #696AFD;
                         }
                     }
                 }
@@ -723,12 +733,12 @@ html, body {
                     height: 28px;
                     line-height: 28px;
                     font-size:20px;
-                    color:#515060;
+                    color:#fff;
                     margin-top: 10px;
                 }
                 .worth{
                     font-size:13px;
-                    color:#e2ab58;
+                    color:#9B9CE0;
                     height: 18px;
                     line-height:18px;
                 }
@@ -752,7 +762,7 @@ html, body {
                                 height: 22px;
                                 line-height: 22px;
                                 font-size:16px;
-                                color:#515060;
+                                color:#fff;
                             }
                             .row2{
                                 height: 17px;
@@ -857,8 +867,8 @@ html, body {
                     font-size: 15px;
                     color: #888998;
                     &.active{
-                        color: #636ACC;
-                        border-bottom:2px solid #636ACC;
+                        color: #696AFD;
+                        border-bottom:2px solid #696AFD;
                     }
                 }
             }
@@ -1006,7 +1016,7 @@ html, body {
                         width: 4px;
                         height: 16px;
                         content:'';
-                        background: #636ACC;
+                        background: #696AFD;
                         margin-right: 14px;
                     }
                 }
@@ -1187,6 +1197,7 @@ html, body {
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: rgba(45, 47, 60, 1);
             button.addToken{
                 margin-top: 18px;
                 &:before{
@@ -1198,12 +1209,12 @@ html, body {
             }
             &>.desc{
                 margin:50px 0 30px;
-                font-size: 12px;
+                font-size: 14px;
                 color: #888998;
             }
             &>.address{
                 font-size: 14px;
-                color: #505160;
+                color: #787886;
                 margin-top: 28px;
             }
             .copyAddressBtn{
@@ -1218,9 +1229,10 @@ html, body {
                 color: #505160;
                 margin-top: 14px;
                 &:before{
-                    height: 14px;
-                    width: 14px;
-                    background-image: url('../images/new/icon-copy2.svg');
+                    height: 16px;
+                    width: 16px;
+                    background-image: url('../images/new/vminer/icon-copy.png');
+                    background-size: cover;
                     content: "";
                     margin-right: 4px;
                 }
@@ -1247,9 +1259,9 @@ html, body {
                 .input{
                     width: 100%;
                     padding:0 10px;
-                    height: 36px;
-                    background: #F7F8FA;
-                    border-radius: 2px;
+                    height: 42px;
+                    background: #1B1D2A;
+                    border-radius: 4px;
 
                     display: flex;
                     align-items: center;
@@ -1304,6 +1316,8 @@ html, body {
                             display: flex;
                             flex-direction: row;
                             justify-content: space-between;
+                            color: #787886;
+                            font-size: 14px;
                             span{
                                 &:first-child{
                                     flex:1;
@@ -1365,32 +1379,43 @@ html, body {
     .pageHeader {
         text-align: center;
         font-weight: 400;
-        font-size: 18px;
-        color: #505160;
+        font-size: 16px;
+        color: white;
         width: 100%;
         &LogoWrap{
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-bottom: 60px;
             .logo1{
                 width: 65px;
                 height: 65px;
-                background-image: url('../images/new/logo.svg');
+                background-image: url('../images/new/logo.png');
                 background-repeat: no-repeat;
+                background-size: cover;
             }
             .logo2{
                 margin-top: 10px;
-                width: 100px;
-                height: 20px;
-                background-image: url('../images/new/logo2.svg');
+                width: 106px;
+                height: 28px;
+                background-image: url('../images/new/logo2.png');
                 background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .logo3{
+                margin-top: 10px;
+                width: 103px;
+                height: 112px;
+                background-image: url('../images/new/logo3.png');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
         }
         &Text{
             height: 65px;
             line-height: 65px;
             font-size: 20px;
-            color: #515060;
+            color: #FFFFFF;
         }
         .detail{
             position: absolute;
@@ -1404,7 +1429,7 @@ html, body {
         }
     }
     .greyModal {
-        background: #EEEEEE;
+        background: #2D2F3C;
         border-radius: 5px;
         padding: 25px;
         width: 100%;
@@ -1422,21 +1447,21 @@ html, body {
                 line-height: 46px;
             }
             .customInput{
-                background: #F7F8FA;
+                background: #1B1D2A;
                 border-radius: 2px;
                 input{
                     text-align: center;
                 }
             }
             .customButton.primary{
-                background-color: #636ACC;
+                background-color: #696AFD;
                 border-radius: 2px;
             }
         }
         &.registrationModel{
             .customInput{
-                background: #fff;
-                border-bottom:1px solid #F0F0F0;
+                background: #1B1D2A;
+                border-bottom:1px solid #1B1D2A;
                 border-radius: 2px;
                 input{
                     text-align: left;
@@ -1450,7 +1475,7 @@ html, body {
                 text-align:center;
             }
             .criteria{
-                background-color: #fff;
+                background-color: #2D2F3C;
                 padding:4px 0;
                 .statusIcon{
                     width: 20px;

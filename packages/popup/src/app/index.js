@@ -40,6 +40,10 @@ class App extends React.Component {
         ja: jaMessages
     }
 
+    componentDidMount(){
+        PopupAPI.checkUpdate();
+    }
+
     render() {
         const { appState,accounts,prices,nodes,language,lock,version } = this.props;
         let dom = null;

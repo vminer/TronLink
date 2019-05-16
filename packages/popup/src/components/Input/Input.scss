@@ -3,7 +3,7 @@
     width: 100%;
     line-height: 40px;
     border-radius: 4px;
-    background: #FFFFFF;
+    background: #1B1D2A;
     display: flex;
     flex-direction: row;
 
@@ -23,6 +23,7 @@
         font-size: 14px;
         padding: 0 16px;
         background: transparent;
+        color: #FFFFFF;
 
         &.has-icon {
             padding-left: 0;
@@ -35,9 +36,9 @@
         &:hover {
 
         }
-    
+
         &:focus {
-    
+
         }
     }
 
@@ -57,7 +58,7 @@
 }
 
 .inputGroup {
-    background: #F7F7F7;
+    background: #1b1d2a;
     border-radius: 4px;
 
     .customInput input {

@@ -4,10 +4,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background: #F2F2F2;
+    background: rgba(45, 47, 60, 1);
     .header {
         width: 100%;
-        background: #FFFFFF;
+        background: rgba(45, 47, 60, 1);
         .titleContainer {
             height: 58px;
             display: flex;
@@ -20,7 +20,9 @@
                 flex-direction: row;
                 justify-content: space-between;
                 img{
-                    width: 82px;
+                    width: 106px;
+                    height: 28px;
+                    background-size: cover;
                 }
                 .linkWrap{
                     height: 16px;
@@ -68,30 +70,31 @@
                     flex-direction: row;
                     align-items: center;
                     .fun {
-                        width: 18px;
-                        height: 18px;
+                        width: 22px;
+                        height: 22px;
                         cursor: pointer;
                         background-repeat: no-repeat;
                         background-position: center;
+                        background-size: cover;
                         &:nth-child(1) {
-                            background-image: url('../../assets/images/new/icon-lock2.svg');
+                            background-image: url('../../assets/images/new/vminer/icon-lock2.png');
                             margin-right: 10px;
                             margin-left: 10px;
                             &:hover{
-                                background-image: url('../../assets/images/new/icon-lock2-hover.svg');
+                                background-image: url('../../assets/images/new/vminer/icon-lock2.png');
                             }
                         }
                         &:nth-child(2) {
-                            background-image: url('../../assets/images/new/icon-refresh.svg');
+                            background-image: url('../../assets/images/new/vminer/icon-refresh.png');
                             margin-right: 10px;
                             &:hover{
-                                background-image: url('../../assets/images/new/icon-refresh-hover.svg');
+                                background-image: url('../../assets/images/new/vminer/icon-refresh.png');
                             }
                         }
                         &:nth-child(3) {
-                            background-image: url('../../assets/images/new/icon-setting.svg');
+                            background-image: url('../../assets/images/new/vminer/icon-setting.png');
                             &:hover{
-                                background-image: url('../../assets/images/new/icon-setting-hover.svg');
+                                background-image: url('../../assets/images/new/vminer/icon-setting.png');
                             }
                         }
                     }
@@ -122,7 +125,7 @@
         top: 40px;
         left: 0;
         z-index:100;
-        background: rgba(80,81,96,0.90);
+        background: #16171E;
         border-radius: 4px;
         transition: all ease-in-out .2s;
         overflow:hidden;
@@ -182,39 +185,42 @@
                 margin:0 10px;
             }
             .icon{
-                width: 30px;
-                height: 30px;
+                width: 18px;
+                height: 18px;
                 background-position: center;
                 background-repeat: no-repeat;
+                background-size: cover;
+                margin-right: 15px;
+                margin-left: 13px;
                 &.account{
                     background-image: url('../../assets/images/new/icon-user.svg');
                 }
                 &.create{
-                    background-image: url('../../assets/images/new/icon-create.svg');
+                    background-image: url('../../assets/images/new/vminer/icon-create.png');
                 }
                 &.import{
-                    background-image: url('../../assets/images/new/icon-import.svg');
+                    background-image: url('../../assets/images/new/vminer/icon-import.png');
                 }
                 &.backup{
-                    background-image: url('../../assets/images/new/icon-backup.svg');
+                    background-image: url('../../assets/images/new/vminer/icon-backup.png');
                 }
                 &.whitelist{
                     background-image: url('../../assets/images/new/icon-white-list.svg');
                 }
                 &.delete{
-                    background-image: url('../../assets/images/new/icon-delete.svg');
+                    background-image: url('../../assets/images/new/vminer/icon-delete.png');
                 }
                 &.link{
-                    background-image: url('../../assets/images/new/icon-link.svg');
+                    background-image: url('../../assets/images/new/vminer/icon-link.png');
                 }
                 &.addToken{
-                    background-image: url('../../assets/images/new/icon-add.svg');
+                    background-image: url('../../assets/images/new/vminer/icon-add.png');
                 }
                 &.frozen{
-                    background-image: url('../../assets/images/new/icon-frozen.svg');
+                    background-image: url('../../assets/images/new/vminer/icon-frozen.png');
                 }
                 &.vote{
-                    background-image: url('../../assets/images/new/icon-vote.svg');
+                    background-image: url('../../assets/images/new/vminer/icon-vote.png');
                 }
             }
 

@@ -10,7 +10,7 @@ const RequestHandler = {
     },
 
     bindListener() {
-        this.eventChannel.on('tabReply', ({ success, data, uuid }) => {
+        this.eventChannel.on('vminer_tabReply', ({ success, data, uuid }) => {
             if(success)
                 this.calls[ uuid ].resolve(data);
             else this.calls[ uuid ].reject(data);
@@ -22,7 +22,7 @@ const RequestHandler = {
     handler(action, data = {}) {
         const uuid = randomUUID();
 
-        this.eventChannel.send('tunnel', {
+        this.eventChannel.send('vminer_tunnel', {
             action,
             data,
             uuid

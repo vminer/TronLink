@@ -14,7 +14,7 @@ const pageHook = {
     },
 
     init() {
-        this._bindTronWeb();
+        this._bindvminer();
         this._bindEventChannel();
         this._bindEvents();
 
@@ -25,36 +25,36 @@ const pageHook = {
             if(node.fullNode)
                 this.setNode(node);
 
-            logger.info('TronLink initiated');
+            logger.info('VminerExtension initiated');
         }).catch(err => {
-            logger.info('Failed to initialise TronWeb', err);
+            logger.info('Failed to initialise vminer', err);
         });
     },
 
-    _bindTronWeb() {
-        if(window.tronWeb !== undefined)
-            logger.warn('TronWeb is already initiated. TronLink will overwrite the current instance');
+    _bindvminer() {
+        if(window.vminer !== undefined)
+            logger.warn('vminer is already initiated. VminerExtension will overwrite the current instance');
 
-        const tronWeb = new TronWeb(
+        const vminer = new TronWeb(
             new ProxiedProvider(),
             new ProxiedProvider(),
             new ProxiedProvider()
         );
 
         this.proxiedMethods = {
-            setAddress: tronWeb.setAddress.bind(tronWeb),
-            sign: tronWeb.trx.sign.bind(tronWeb)
+            setAddress: vminer.setAddress.bind(vminer),
+            sign: vminer.trx.sign.bind(vminer)
         };
 
         [ 'setPrivateKey', 'setAddress', 'setFullNode', 'setSolidityNode', 'setEventServer' ].forEach(method => (
-            tronWeb[ method ] = () => new Error('TronLink has disabled this method')
+            vminer[ method ] = () => new Error('TronLink has disabled this method')
         ));
 
-        tronWeb.trx.sign = (...args) => (
+        vminer.trx.sign = (...args) => (
             this.sign(...args)
         );
 
-        window.tronWeb = tronWeb;
+        window.vminer = vminer;
     },
 
     _bindEventChannel() {
@@ -76,15 +76,15 @@ const pageHook = {
         // logger.info('TronLink: New address configured');
 
         this.proxiedMethods.setAddress(address);
-        tronWeb.ready = true;
+        vminer.ready = true;
     },
 
     setNode(node) {
         // logger.info('TronLink: New node configured');
 
-        tronWeb.fullNode.configure(node.fullNode);
-        tronWeb.solidityNode.configure(node.solidityNode);
-        tronWeb.eventServer.configure(node.eventServer);
+        vminer.fullNode.configure(node.fullNode);
+        vminer.solidityNode.configure(node.solidityNode);
+        vminer.eventServer.configure(node.eventServer);
     },
 
     sign(transaction, privateKey = false, useTronHeader = true, callback = false) {
@@ -107,7 +107,7 @@ const pageHook = {
         if(!transaction)
             return callback('Invalid transaction provided');
 
-        if(!tronWeb.ready)
+        if(!vminer.ready)
             return callback('User has not unlocked wallet');
 
         this.request('sign', {

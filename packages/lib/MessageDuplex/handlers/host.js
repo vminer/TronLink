@@ -83,17 +83,17 @@ class MessageDuplexHost extends EventEmitter {
             data
         } = message;
 
-        if(action == 'messageReply')
+        if(action == 'vminer_messageReply')
             return this.handleReply(data);
 
-        if(source == 'tab' && ![ 'tabRequest' ].includes(action))
+        if(source == 'vminer_tab' && ![ 'vminer_tabRequest' ].includes(action))
             return logger.error(`Droping unauthorized tab request: ${ action }`, data);
 
         if(noAck)
             return this.emit(action, { hostname, data });
 
         this.incoming.set(messageID, res => (
-            this.send(source, 'messageReply', {
+            this.send(source, 'vminer_messageReply', {
                 messageID,
                 ...res
             }, false)

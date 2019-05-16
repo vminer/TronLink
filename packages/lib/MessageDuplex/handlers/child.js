@@ -9,7 +9,7 @@ class MessageDuplexChild extends EventEmitter {
     constructor(type = false) {
         super();
 
-        if(![ 'tab', 'popup' ].includes(type))
+        if(![ 'vminer_tab', 'vminer_popup' ].includes(type))
             throw new Error(`MessageDuplexChild expects a source type of either tab or popup, instead "${ type }" was provided`);
 
         this.type = type;
@@ -88,14 +88,14 @@ class MessageDuplexChild extends EventEmitter {
     handleMessage({ action, data, messageID, noAck = false }) {
         // logger.info('Received new message', { action, data, messageID });
 
-        if(action == 'messageReply')
+        if(action == 'vminer_messageReply')
             return this.handleReply(data);
 
         if(noAck)
             return this.emit(action, data);
 
         this.incoming.set(messageID, res => (
-            this.send('messageReply', { messageID, ...res }, false)
+            this.send('vminer_messageReply', { messageID, ...res }, false)
         ));
 
         this.emit(action, {

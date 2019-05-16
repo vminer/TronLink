@@ -5,19 +5,11 @@ import StorageService from './services/StorageService';
 import WalletService from './services/WalletService';
 import Utils from '@tronlink/lib/utils';
 import transactionBuilder from '@tronlink/lib/transactionBuilder';
-import TronWeb from 'tronweb';
-
-import * as Sentry from '@sentry/browser';
 
 import { CONFIRMATION_TYPE } from '@tronlink/lib/constants';
 import { BackgroundAPI } from '@tronlink/lib/api';
-import { version } from './package.json';
 
 // Make error reporting user-configurable
-Sentry.init({
-    dsn: 'https://5d5f88b4905844f9a1be3d380f5569a8@sentry.io/1455160',
-    release: `TronLink@${ version }`
-});
 
 const duplex = new MessageDuplex.Host();
 const logger = new Logger('backgroundScript');
@@ -27,53 +19,24 @@ const backgroundScript = {
         new WalletService()
     ),
 
-    developmentMode: location.hostname !== 'ibnejdfjmmkpcnlpebklmnkoeoihofec',
+    developmentMode: location.hostname !== 'mjiaoacjghphpbdfjhfajojajhkcphgm',
     nodeService: Utils.requestHandler(NodeService),
 
     run() {
         BackgroundAPI.init(duplex);
 
-        this.bindAnalytics();
         this.bindPopupDuplex();
         this.bindTabDuplex();
         this.bindWalletEvents();
     },
 
-    bindAnalytics() {
-        (function(i, s, o, g, r, a, m) {
-            i.GoogleAnalyticsObject = r;
-
-            i[ r ] = i[ r ] || function() {
-                (i[ r ].q = i[ r ].q || []).push(arguments);
-            }, i[ r ].l = 1 * new Date();
-
-            a = s.createElement(o),
-            m = s.getElementsByTagName(o)[ 0 ];
-
-            a.async = 1;
-            a.src = g;
-
-            m.parentNode.insertBefore(a, m);
-        })(window, document, 'script', (this.developmentMode ?
-            //'https://www.google-analytics.com/analytics_debug.js' :
-            'https://www.google-analytics.com/analytics.js' :
-            'https://www.google-analytics.com/analytics.js'
-        ), 'ga');
-
-        ga('create', 'UA-126129673-2', 'auto');
-        ga('send', 'pageview');
-        ga('set', 'checkProtocolTask', null);
-        ga('set', 'appName', 'TronLink');
-        ga('set', 'appVersion', version);
-    },
-
     bindPopupDuplex() {
         // Popup Handling (For transaction polling)
-        duplex.on('popup:connect', () => (
+        duplex.on('vminer_popup:connect', () => (
             this.walletService.startPolling()
         ));
 
-        duplex.on('popup:disconnect', () => (
+        duplex.on('vminer_popup:disconnect', () => (
             this.walletService.stopPolling()
         ));
 
@@ -161,10 +124,13 @@ const backgroundScript = {
 
         duplex.on('setGaEvent', this.walletService.setGaEvent);
         duplex.on('getAllDapps', this.walletService.getAllDapps);
+
+        duplex.on('checkUpdate',this.walletService.checkUpdate);
+
     },
 
     bindTabDuplex() {
-        duplex.on('tabRequest', async ({ hostname, resolve, data: { action, data, uuid } }) => {
+        duplex.on('vminer_tabRequest', async ({ hostname, resolve, data: { action, data, uuid } }) => {
             // Abstract this so we can just do resolve(data) or reject(data)
             // and it will map to { success, data, uuid }
 
@@ -250,32 +216,30 @@ const backgroundScript = {
                             mapped
                         );
 
-                        const whitelist = this.walletService.contractWhitelist[ input.contract_address ];
+                        const whitelist = this.walletService.contractWhitelist[ input.contract_address ]
+                                            || this.walletService.contractWhitelist[ input.to_address ];
 
                         if(contractType === 'TriggerSmartContract') {
                             const value = input.call_value || 0;
-
-                            ga('send', 'event', {
-                                eventCategory: 'Smart Contract',
-                                eventAction: 'Used Smart Contract',
-                                eventLabel: TronWeb.address.fromHex(input.contract_address),
-                                eventValue: value,
-                                referrer: hostname,
-                                userId: Utils.hash(input.owner_address)
-                            });
                         }
 
-                        if(contractType === 'TriggerSmartContract' && whitelist) {
-                            const expiration = whitelist[ hostname ];
+                        if(whitelist) {
+                            switch (contractType) {
+                                case 'TriggerSmartContract':
+                                case 'TransferContract':
+                                case 'TransferAssetContract': {
+                                    const expiration = whitelist[ hostname ];
 
-                            if(expiration === -1 || expiration >= Date.now()) {
-                                logger.info('Automatically signing transaction', signedTransaction);
+                                    if(expiration === -1 || expiration >= Date.now()) {
+                                        logger.info('Automatically signing transaction', signedTransaction);
 
-                                return resolve({
-                                    success: true,
-                                    data: signedTransaction,
-                                    uuid
-                                });
+                                        return resolve({
+                                            success: true,
+                                            data: signedTransaction,
+                                            uuid
+                                        });
+                                    }
+                                }
                             }
                         }
 

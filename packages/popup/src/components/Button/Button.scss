@@ -14,7 +14,7 @@
     }
 
     &.is-invalid {
-        opacity: 0.4;
+        background: #7D7D94 !important;
     }
 
     &.is-valid {
@@ -38,12 +38,12 @@
     }
 
     &.primary {
-        background: #636ACC;
+        background: #696AFD;
 
         &.is-valid:not(.is-loading):hover {
             //background: #454c67;
         }
-    
+
         &.is-valid:not(.is-loading):focus {
             //background: #474d64;
         }
@@ -75,7 +75,7 @@
 
     &.white {
         background: #FFFFFF;
-        
+
         span {
             color: #000000;
         }

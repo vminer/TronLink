@@ -9,7 +9,6 @@ import { addLocaleData } from 'react-intl';
 import en from 'react-intl/locale-data/en';
 import zh from 'react-intl/locale-data/zh';
 import ja from 'react-intl/locale-data/ja';
-import * as Sentry from '@sentry/browser';
 import { Provider } from 'react-redux';
 import { configureStore, getDefaultMiddleware } from 'redux-starter-kit';
 import { PopupAPI } from '@tronlink/lib/api';
@@ -46,10 +45,6 @@ import {
     faDotCircle
 } from '@fortawesome/free-solid-svg-icons';
 addLocaleData([...en, ...zh, ...ja]);
-Sentry.init({
-    dsn: 'https://a52a6098294d4c1c8397e22c8b9a1c0f@sentry.io/1455110',
-    release: `TronLink@${ process.env.REACT_APP_VERSION }`
-});
 
 const logger = new Logger('Popup');
 

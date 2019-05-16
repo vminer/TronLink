@@ -17,18 +17,18 @@ const contentScript = {
     },
 
     registerListeners() {
-        this.eventChannel.on('tunnel', async data => {
+        this.eventChannel.on('vminer_tunnel', async data => {
             try {
                 this.eventChannel.send(
-                    'tabReply',
-                    await this.duplex.send('tabRequest', data)
+                    'vminer_tabReply',
+                    await this.duplex.send('vminer_tabRequest', data)
                 );
             } catch(ex) {
                 logger.info('Tab request failed:', ex);
             }
         });
 
-        this.duplex.on('tunnel', ({ action, data }) => {
+        this.duplex.on('vminer_tunnel', ({ action, data }) => {
             this.eventChannel.send(action, data);
         });
     },

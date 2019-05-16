@@ -1,7 +1,7 @@
 .confirmingPhrase {
     .wordList {
         margin: 14px 0;
-        background: #F7F8FA;
+        background: #3D4052;
         border-radius: 2px;
         padding: 15px;
         text-align: center;
@@ -14,9 +14,10 @@
             float: left;
             width: 30%;
             height: 29px;
-            background-color: #fff;
+            background-color: #2D2F3C;
             padding: 2px 0;
             margin: 0 5% 8px 0;
+            color: #FFFFFF;
             &:nth-child(3n) {
                 margin-right: 0;
             }
@@ -36,7 +37,7 @@
             margin:4px 10px  4px 0;
             padding: 4px 6px;
             font-size: 14px;
-            color: #888998;
+            color: #FFFFFF;
             border-radius: 2px;
             transition: all 150ms ease;
             border: 1px solid #888998;

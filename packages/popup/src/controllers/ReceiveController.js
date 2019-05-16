@@ -44,7 +44,7 @@ class ReceiveController extends React.Component {
                         <FormattedMessage id="ACCOUNT.RECEIVE.DESC" />
                     </div>
                     <QRCode
-                        value={address}
+                        value={address} style={{border:'8px solid white'}}
                     />
                     <div class="address">
                         {address}

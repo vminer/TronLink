@@ -1,8 +1,7 @@
 {
   "name": "@tronlink/contentScript",
   "main": "index.js",
-  "repository": "https://github.com/TronLink/TronLink",
-  "author": "Kondax <kondaxsolutions@gmail.com>",
+  "author": "Bowen <bowenshuangshuang@gmail.com>",
   "private": true,
   "version": "2.4.4",
   "scripts": {

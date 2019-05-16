@@ -260,5 +260,11 @@ export default {
 
     getAllDapps() {
         return this.duplex.send('getAllDapps');
+    },
+
+    //检查更新
+    checkUpdate(){
+        this.duplex.send('checkUpdate');
     }
+
 };

@@ -1,10 +1,3 @@
-/*
- * @Author: lxm
- * @Date: 2019-03-19 15:18:05
- * @Last Modified by: lxm
- * @Last Modified time: 2019-04-23 15:32:40
- * TronBankPage
- */
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { PopupAPI } from '@tronlink/lib/api';
@@ -157,9 +150,9 @@ class BankController extends React.Component {
             validOrderOverLimit.valid = true;
             isOnlineAddress.error = false;
             curentInputBalance.show = false;
-            if(_type === 2) {
+            if(_type === 2) 
                 recipient.error = true;
-            } else recipient.error = false;
+             else recipient.error = false;
             this.setState({
                 recipient,
                 validOrderOverLimit,
@@ -618,7 +611,7 @@ class BankController extends React.Component {
                                         onChange={ (e) => { this.handlerRentNumChange(e, 1); }}
                                         onBlur={ (e) => this.handlerRentNumChange(e, 2)}
                                         className='commonInput rentNumInput'
-                                        placeholder={ formatMessage({ id: 'BANK.INDEX.FREEZEPLACEHOLDER' }) + `（${rentNumMin}-${rentNumMax}）`}
+                                        placeholder={ `${formatMessage({ id: 'BANK.INDEX.FREEZEPLACEHOLDER' })  }（${rentNumMin}-${rentNumMax}）`}
                                     /><span>TRX</span>
                                 </div>
                                 { rentNum.formatError ?
@@ -658,7 +651,7 @@ class BankController extends React.Component {
                                         onChange={ (e) => { this.handlerRentDayChange(e, 1); }}
                                         onBlur={ (e) => { this.handlerRentDayChange(e, 2); }}
                                         className='commonInput rentDay'
-                                        placeholder={ formatMessage({ id: 'BANK.INDEX.RENTPLACEHOLDER' }) + `(${rentDayMin}-${rentDayMax})`} type='text'
+                                        placeholder={ `${formatMessage({ id: 'BANK.INDEX.RENTPLACEHOLDER' })  }(${rentDayMin}-${rentDayMax})`} type='text'
                                     />
                                     <span className={rentDay.error || rentDay.formatError ? 'errorLeftBorder' : 'norderLeftBorder'} onClick={ (e) => this.handlerRentDayFun(2)}>
                                         <Button className='operatingBtn' icon={<img className='operationAddIcon' src={myImg('add')} alt='add' />} inline size='small'>

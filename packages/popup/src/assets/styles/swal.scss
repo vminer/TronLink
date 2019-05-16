@@ -9,6 +9,7 @@
     font-size: 13px !important;
     border-radius: 4px !important;
     overflow: hidden !important;
+    background: #3D4052 !important;
 
     .swal2-title {
         display: flex !important;
@@ -16,11 +17,12 @@
         margin-bottom: 20px !important;
         font-size: 17px !important;
         font-weight: 500 !important;    
+        color: white;
     }
 
     #swal2-content {
         font-size: 14px !important;
-        background: #F5F5F5 !important;
+        background: #3D4052 !important;
         border-radius: 4px !important;
         padding: 15px !important;
         margin: 0 !important;
@@ -46,14 +48,25 @@
         border-radius: 4px !important;
 
         &.swal2-confirm {
-            background: #353A4E !important;
+            background: #696AFD !important;
 
             &:hover {
-                background: #454c67 !important;
+                background: #696AFD !important;
             }
 
             &:focus {
-                background: #474d64 !important;
+                background: #696AFD !important;
+            }
+        }
+
+        &.swal2-warning{
+            background: white !important;
+
+            &:hover{
+                background: white !important;
+            }
+            &:focus{
+                background: white !important;
             }
         }
 
@@ -101,6 +114,50 @@
 
         &:last-of-type {
             margin-bottom: 0;
+        }
+    }
+}
+
+$theme: #2D2F3C;
+
+.vMinerContainer {
+    background: $theme !important;
+    .back {
+        background-image: url('../images/new/vminer/setting-back.png') !important;
+    }
+    .pageHeader {
+        background: $theme !important;
+        > span {
+            color: #fff !important;
+        }
+    }
+    .greyModal {
+        background: $theme !important;
+        .span {
+            span {
+                color: #fff !important;
+            }
+            .unit {
+                color: #787886 !important;
+                span {
+                    color: #787886 !important;
+                }
+            }
+        }
+        .txt {
+            border-bottom: 1px solid #3D4052 !important;
+            span {
+                color: #fff !important;
+            }
+            .selected {
+                color: #fff !important;
+            }
+            .cell span {
+                color: #787886 !important;
+            }
+            label span {
+                color: #787886 !important;
+            }
         }
     }
 }
